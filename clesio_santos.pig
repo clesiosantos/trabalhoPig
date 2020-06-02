@@ -12,8 +12,8 @@ tags = LOAD 'tags.csv' USING CSVExcelStorage() AS (userId:int, movieId:int,tag: 
 -- QUESTAO 1 - Quantidade de usuários distintos que fizeram avaliação de filmes (DUMP)
 ratings_userid_1 = FOREACH ratings GENERATE $0;
 d_ratings_userid_1 = DISTINCT ratings_userid_1;
-g_ratings_userid = GROUP d_ratings_userid_1 ALL;
-count_distinct_userid = FOREACH g_ratings_userid_1 GENERATE COUNT(d_ratings_userid_1);
-DUMP count_distinct_userid; 
+g_ratings_userid_1 = GROUP d_ratings_userid_1 ALL;
+count_distinct_userid_1 = FOREACH g_ratings_userid_1 GENERATE COUNT(d_ratings_userid_1);
+DUMP count_distinct_userid_1; 
 
 -- QUESTAO 2 - quantidade de avaliações por usuário (qtd_user_rating.txt)
