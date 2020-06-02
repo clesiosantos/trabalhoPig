@@ -1,14 +1,13 @@
 -- Script Pig Clesio Santos
-
 -- limpar logs 
-rm -rf ./*.logs
+sh rm -rf ./*.logs
 
 -- CARREGA OS ARQUIVOS PARA MANIPULAÇÃO
 DEFINE CSVExcelStorage org.apache.pig.piggybank.storage.CSVExcelStorage(',', 'NO_MULTILINE', 'UNIX', 'SKIP_INPUT_HEADER');
 ratings = LOAD 'ratings.csv' USING CSVExcelStorage() AS (userId:int,movieId:int,rating:float,timestamp:long);
 movies = LOAD 'movies.csv' USING CSVExcelStorage() AS (movieId:int ,title: chararray,genres: chararray);
 tags = LOAD 'tags.csv' USING CSVExcelStorage() AS (userId:int, movieId:int,tag: chararray,timestamp:long);
-
+	
 
 -- QUESTAO 1 - Quantidade de usuários distintos que fizeram avaliação de filmes (DUMP)
 1_ratings_userid = FOREACH ratings GENERATE $0;
