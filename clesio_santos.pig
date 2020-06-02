@@ -7,4 +7,4 @@ tags = LOAD 'tags.csv' USING CSVExcelStorage() AS (userId:int, movieId:int,tag: 
 
 
 count_usuario_distinto = FOREACH ratings generate COUNT(userId) ;  
-DUMP usuario_distinto;
+DUMP count_usuario_distinto;
