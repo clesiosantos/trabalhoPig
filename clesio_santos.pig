@@ -4,6 +4,7 @@
 
 fs -rm -f -r -R qtd_user_rating.txt;
 fs -rm -f -r -R user_max_rate_date.txt
+fs -rm -f -r -R qtd_movie_by_gender.txt
 
 -- CARREGA OS ARQUIVOS PARA MANIPULAÇÃO
 DEFINE CSVExcelStorage org.apache.pig.piggybank.storage.CSVExcelStorage(',', 'NO_MULTILINE', 'UNIX', 'SKIP_INPUT_HEADER');
