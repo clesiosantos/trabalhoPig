@@ -1,7 +1,6 @@
 -- Script Pig Clesio Santos
 -- limpar logs 
-sh rm -rf ./*.logs
-sh rm -rf ./clesio_santos
+fs -rm -r qtd_user_rating.txt
 
 -- CARREGA OS ARQUIVOS PARA MANIPULAÇÃO
 DEFINE CSVExcelStorage org.apache.pig.piggybank.storage.CSVExcelStorage(',', 'NO_MULTILINE', 'UNIX', 'SKIP_INPUT_HEADER');
@@ -21,3 +20,5 @@ DUMP count_distinct_userid_1;
 g_ratings_userid_2 = GROUP ratings BY userId;
 c_userid_total_2 = FOREACH g_ratings_userid_2 GENERATE group AS userId, COUNT($1) AS count;
 STORE c_userid_total_2 INTO 'qtd_user_rating.txt' USING PigStorage(',');
+
+
